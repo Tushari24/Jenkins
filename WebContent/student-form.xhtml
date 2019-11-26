@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<head>
+<title><ui:insert name="title">Default title</ui:insert></title>
+</head>
+
+<h:body>
+	<h:form>
+
+Enter FirstName: <h:inputText id="text1"
+			placeholder="Please enter your first name?"
+			value="#{student.firstName}"></h:inputText>
+Enter LastName: <h:inputText id="text2"
+			placeholder="Please enter your last name?"
+			value="#{student.lastName}"></h:inputText>
+
+		<!-- 		<h:outputText value="Select The Country" /> -->
+		<!-- 		<h:selectOneMenu value="#{student.country}"> -->
+		<!-- 			<f:selectItem itemValue="brazil" itemLabel="brazil" /> -->
+		<!-- 			<f:selectItem itemValue="spain" itemLabel="spain" /> -->
+		<!-- 			<f:selectItem itemValue="india" itemLabel="india" /> -->
+		<!-- 		</h:selectOneMenu> -->
+
+		<h:outputText value="Select The Country" />
+		<h:selectOneMenu value="#{student.country}">
+			<f:selectItems value="#{student.countryOptions}" />
+		</h:selectOneMenu>
+
+		<h:outputText value="Select fav launguage" />
+		<h:selectOneRadio value="#{student.language}">
+			<f:selectItem itemValue="java" itemLabel="java" />
+			<f:selectItem itemValue="javascript" itemLabel="javascript" />
+			<f:selectItem itemValue="c++" itemLabel="c++" />
+			<f:selectItem itemValue="python" itemLabel="python" />
+			<f:selectItem itemValue="kotlin" itemLabel="kotlin" />
+		</h:selectOneRadio>
+		
+		<h:outputText value="Select fav launguages" />
+		<h:selectManyCheckbox value="#{student.favoriteLanguages}">
+			<f:selectItem itemValue="java" itemLabel="java" />
+			<f:selectItem itemValue="javascript" itemLabel="javascript" />
+			<f:selectItem itemValue="c++" itemLabel="c++" />
+			<f:selectItem itemValue="python" itemLabel="python" />
+			<f:selectItem itemValue="kotlin" itemLabel="kotlin" />
+		</h:selectManyCheckbox>
+		
+		
+
+		<h:commandButton value="submit" action="student-confirmation"></h:commandButton>
+
+	</h:form>
+
+</h:body>
+
+</html>
